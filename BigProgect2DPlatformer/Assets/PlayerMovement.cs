@@ -12,20 +12,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float runSpeed = 15; //allows prgrammer to change speed in editor
     private bool grounded;
     private bool onWall;
-    private bool facingRight = true;
     private int life = 1;
 
+    [HideInInspector] public bool isFacingRight = true;
 
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         
-
     }
 
     void Update()
     {
-
         //assigns left and right arrow to move player
         float horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontalInput * runSpeed, body.velocity.y);
@@ -37,19 +35,20 @@ public class PlayerMovement : MonoBehaviour
 
 
         //Makes player look the way it's walking
-        if (horizontalInput > .01 && !facingRight)
+        if (horizontalInput > 0f)
         {
-            facingRight = true;
+            isFacingRight = true;
             transform.localScale = Vector3.one;
-            body.transform.Rotate(0f, 180f, 0f);
+            //body.transform.Rotate(0f, 180f, 0f);
         }
-        else if (horizontalInput < -.01 && facingRight)
+        else if (horizontalInput < 0)
         {
-            facingRight = false;
-            body.transform.Rotate(0f, 180f, 0f);
+            isFacingRight = false;
+            //body.transform.Rotate(0f, 180f, 0f);
             transform.localScale = new Vector3(-1, 1, 1);
 
         }
+
 
         if (onWall && !grounded)
         {
@@ -90,11 +89,14 @@ public class PlayerMovement : MonoBehaviour
             onWall = true;
         }
 
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Spike"))
+        if (collision.gameObject.CompareTag("Enemy") && !collision.gameObject.CompareTag("Head"))
         {
-                life -= 1;
+            life = 1;
         }
-
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            life -= 1;
+        } 
     }
 }   
 
