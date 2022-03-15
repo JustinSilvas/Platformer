@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy") && !collision.gameObject.CompareTag("Head"))
         {
-            life -= 1;
+            life = 1;
         }
         if (collision.gameObject.CompareTag("Spike"))
         {

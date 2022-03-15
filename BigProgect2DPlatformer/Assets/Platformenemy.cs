@@ -113,7 +113,7 @@ public class Platformenemy : MonoBehaviour
 
     void Throw()
     {
-        float angle = direction ? 45f : 135;
-        Instantiate(bulletPrefab, firingPoint.position, Quaternion.Euler(new Vector3(5, 0f, angle)));
+        float angle = direction ? 0f : 180f;
+        Instantiate(bulletPrefab, firingPoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
     }
 }
