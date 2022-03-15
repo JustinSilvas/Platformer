@@ -9,16 +9,17 @@ public class WalkingEnemyWall : MonoBehaviour
     // Start is called before the first frame update
     private Rigidbody2D body;
     public Transform player;
+    Bullet b;
     private float range = 10;
-    private float walkingSpeed = 5;
+    private float walkingSpeed = -5;
     private bool wallCollision = false;
     private bool inRange = false;
     private float checkDist;
     private bool direction = false;
+    public float health = 10;
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        player = GetComponent<Transform>();
         body.velocity = new Vector2(walkingSpeed, 0);
     }
 
@@ -41,33 +42,41 @@ public class WalkingEnemyWall : MonoBehaviour
             direction = false;
         }
         DistanceCheck();
-        
+        if (transform.position.y < -8)
+        {
+            Destroy(this.gameObject);
+        }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))//If hit wall change direction
+        if (collision.gameObject.CompareTag("Wall"))
         {
             wallCollision = true;
         }
+        
 
     }
 
+
     private void DistanceCheck()
     {
-        float distance = player.position.x - transform.position.x;
+        float distance = player.position.x - body.position.x;
+
         if ((distance < range && distance > -range) && inRange == false)
         {
             if (distance > 0)
             {
+
                 if (walkingSpeed < 0)
                 {
                     walkingSpeed = -walkingSpeed;
                     direction = true;
+
                 }
             }
-            else
+            else if (distance < 0)
             {
+
                 if (walkingSpeed > 0)
                 {
                     walkingSpeed = -walkingSpeed;
@@ -89,7 +98,7 @@ public class WalkingEnemyWall : MonoBehaviour
 
     private void SwitchSides(ref float saved)
     {
-        float newDistance = player.position.x - transform.position.x;
+        float newDistance = player.position.x - body.position.x;
 
         if (saved < 0 && newDistance > 0)
         {
