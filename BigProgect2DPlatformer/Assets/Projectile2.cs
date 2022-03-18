@@ -2,27 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Projectile2 : MonoBehaviour
 {
-    public float bulletSpeed = 5;
+    public float bulletSpeed = 10f;
+    public float bulletJump = 20f;
     public float bulletDamage = 10f;
+    Platformenemy pe;
     public Rigidbody2D rb;
     private float kill;
     [SerializeField] private float bulletTime = 5;
 
     // Update is called once per frame
-
-    void FixedUpdate()
+    void Awake()
     {
-        kill += Time.deltaTime;
+        rb.velocity = new Vector2(-bulletSpeed, bulletJump);
+    }
 
-        rb.velocity = transform.right * bulletSpeed;
+    private void FixedUpdate()
+    {
+        kill = Time.deltaTime;
         if (kill > bulletTime)
         {
             Destroy(this.gameObject);
         }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(this.gameObject);
