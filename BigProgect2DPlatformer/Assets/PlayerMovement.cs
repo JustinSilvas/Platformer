@@ -89,10 +89,6 @@ public class PlayerMovement : MonoBehaviour
             onWall = true;
         }
 
-        if (collision.gameObject.CompareTag("Enemy") && !collision.gameObject.CompareTag("Head"))
-        {
-            life = 1;
-        }
         if (collision.gameObject.CompareTag("Spike"))
         {
             life -= 1;

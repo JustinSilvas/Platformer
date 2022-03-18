@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class WalkingEnemyWall : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject play;
     private Rigidbody2D body;
     public Transform player;
-    Bullet b;
+    private Bullet b;
     private float range = 10;
     private float walkingSpeed = -5;
     private bool wallCollision = false;
@@ -25,7 +25,7 @@ public class WalkingEnemyWall : MonoBehaviour
 
     // Update is called once per frame
 
-    private void Update()
+    private void LateUpdate()
     {
         body.velocity = new Vector2(walkingSpeed, 0);
         if (wallCollision && direction == false)
@@ -41,7 +41,11 @@ public class WalkingEnemyWall : MonoBehaviour
             body.velocity = new Vector2(walkingSpeed, 0);
             direction = false;
         }
-        DistanceCheck();
+        if (player.position.y <= body.position.y + 2)
+        {
+            DistanceCheck();
+        }
+        
         if (transform.position.y < -8)
         {
             Destroy(this.gameObject);
@@ -53,46 +57,61 @@ public class WalkingEnemyWall : MonoBehaviour
         {
             wallCollision = true;
         }
-        
 
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Player") && player.position.y > body.position.y + 1)
+        {
+            Destroy(this.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Player") && player.position.y <= body.position.y + 0.5)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player");
+            Destroy(enemies[0]);
+        }
     }
 
 
     private void DistanceCheck()
     {
-        float distance = player.position.x - body.position.x;
-
-        if ((distance < range && distance > -range) && inRange == false)
+        if (play != null)
         {
-            if (distance > 0)
+            float distance = player.position.x - body.position.x;
+            if ((distance < range && distance > -range) && inRange == false)
             {
-
-                if (walkingSpeed < 0)
+                if (distance > 0)
                 {
-                    walkingSpeed = -walkingSpeed;
-                    direction = true;
 
+                    if (walkingSpeed < 0)
+                    {
+                        walkingSpeed = -walkingSpeed;
+                        direction = true;
+
+                    }
                 }
+                else if (distance < 0)
+                {
+
+                    if (walkingSpeed > 0)
+                    {
+                        walkingSpeed = -walkingSpeed;
+                        direction = false;
+                    }
+                }
+                checkDist = distance;
+                inRange = true;
             }
-            else if (distance < 0)
+            else if (distance < range && distance > -range && inRange == true)
             {
-
-                if (walkingSpeed > 0)
-                {
-                    walkingSpeed = -walkingSpeed;
-                    direction = false;
-                }
+                SwitchSides(ref checkDist);
             }
-            checkDist = distance;
-            inRange = true;
-        }
-        else if (distance < range && distance > -range && inRange == true)
-        {
-            SwitchSides(ref checkDist);
-        }
-        else if (distance > range && distance > -range && inRange == true)
-        {
-            inRange = false;
+            else if (distance > range && distance > -range && inRange == true)
+            {
+                inRange = false;
+            }
         }
     }
 
