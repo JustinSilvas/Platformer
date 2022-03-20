@@ -1229,7 +1229,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8.54
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1253,7 +1253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58.833344, y: 65.28, z: -10}
+  m_LocalPosition: {x: 69.816666, y: 65.14, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2945,7 +2945,8 @@ GameObject:
   - component: {fileID: 1411172370}
   - component: {fileID: 1411172369}
   - component: {fileID: 1411172371}
-  m_Layer: 0
+  - component: {fileID: 1411172372}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3095,6 +3096,20 @@ MonoBehaviour:
   fireRate: 0.2
   firingPoint: {fileID: 493758335}
   bulletPrefab: {fileID: 1441625859248927783, guid: 151c55365d187e8438cf23ebf4f361e4, type: 3}
+--- !u!114 &1411172372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411172365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01af0fd8c6fdee74fbb1f341dacb956a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hook: {fileID: 1605110495733498199, guid: 6b75bf0584208d84ab58c3c659023e5f, type: 3}
+  ropeActive: 0
 --- !u!1 &1460179865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3583,7 +3598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722287375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58.833344, y: 65.28, z: -10}
+  m_LocalPosition: {x: 69.816666, y: 65.14, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1836780680}
