@@ -1328,7 +1328,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.816659, y: 1.6400003, z: -10}
+  m_LocalPosition: {x: -10.283326, y: 1.6400003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3199,12 +3199,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1411172368}
   - component: {fileID: 1411172367}
-  - component: {fileID: 1411172366}
   - component: {fileID: 1411172370}
   - component: {fileID: 1411172369}
   - component: {fileID: 1411172371}
   - component: {fileID: 1411172372}
   - component: {fileID: 1411172373}
+  - component: {fileID: 1411172366}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3221,11 +3221,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1411172365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf60d23977dbfb24cb428ed04b0cda46, type: 3}
+  m_Script: {fileID: 11500000, guid: 96ab16dc5260d514b8b6a2dc521e34ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 40
-  runSpeed: 15
+  speed: 15
+  jumpPower: 30
+  coyoteTime: 0.25
+  extraJumps: 1
+  wallJumpX: 3000
+  wallJumpY: 2000
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   isFacingRight: 1
 --- !u!212 &1411172367
 SpriteRenderer:
@@ -3950,7 +3960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722287375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.816659, y: 1.6400003, z: -10}
+  m_LocalPosition: {x: -10.283326, y: 1.6400003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1836780680}
