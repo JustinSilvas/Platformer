@@ -1,17 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
 
     public int maxHealth = 100;
-    public int currentHealth;
+    public int currentHealth = 100;
+    public int lifeCount;
+
+    string currentSceneName;
+
     public HealthBar healthBar;
     public Respawn respawn;
 
+    public GameObject walkingEnemy;
+    public GameObject platformEnemy1;
+    public GameObject platformEnemy2;
+
+
     private void Start()
     {
+        lifeCount = 3;
+        currentSceneName = SceneManager.GetActiveScene().name;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -23,20 +35,53 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(40);
         }
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("WalkingEnemy") && transform.position.y < walkingEnemy.transform.position.y + .5 )
         {
             TakeDamage(50);
         }
+        if (collision.gameObject.CompareTag("PlatformEnemy1") && transform.position.y < platformEnemy1.transform.position.y + .5)
+        {
+            TakeDamage(50);
+        }
+        if (collision.gameObject.CompareTag("PlatformEnemy2") && transform.position.y < platformEnemy2.transform.position.y + .5)
+        {
+            TakeDamage(50);
+        }
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            TakeDamage(maxHealth);
+        }
+        
     }
 
     private void Update()
     {
-        if (currentHealth <= 0)
+
+        if (transform.position.y <= -20)
         {
-            respawn.playerRespawn();
+            TakeDamage(maxHealth);
+        }
+        if (currentHealth <= 0 && lifeCount > 0)
+        {
+            lifeCount--;
+            respawn.PlayerRespawn();
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
+
+            healthBar.SetLifeCount(lifeCount);
+
         }
+        if (lifeCount <= 0)
+        {
+            SceneManager.LoadScene(currentSceneName);
+            lifeCount = 3;
+
+            healthBar.SetLifeCount(lifeCount);
+
+        }
+        
+
+        
     }
 
     void TakeDamage(int damage)
