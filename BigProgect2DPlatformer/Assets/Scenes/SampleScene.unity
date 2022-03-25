@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 50821165}
   - component: {fileID: 50821164}
   - component: {fileID: 50821163}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (8)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 448728279}
   - component: {fileID: 448728278}
   - component: {fileID: 448728277}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (1)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -886,7 +886,7 @@ GameObject:
   - component: {fileID: 467282190}
   - component: {fileID: 467282189}
   - component: {fileID: 467282188}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (3)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1097,7 +1097,7 @@ GameObject:
   - component: {fileID: 503253173}
   - component: {fileID: 503253172}
   - component: {fileID: 503253171}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (5)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1328,7 +1328,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4666667, y: 1.500001, z: -10}
+  m_LocalPosition: {x: 4.95252, y: 1.500001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2184,7 +2184,7 @@ GameObject:
   - component: {fileID: 898034931}
   - component: {fileID: 898034930}
   - component: {fileID: 898034929}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -2315,7 +2315,7 @@ GameObject:
   - component: {fileID: 948968710}
   - component: {fileID: 948968709}
   - component: {fileID: 948968708}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (6)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -3119,12 +3119,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1411172368}
   - component: {fileID: 1411172367}
-  - component: {fileID: 1411172366}
   - component: {fileID: 1411172370}
   - component: {fileID: 1411172369}
   - component: {fileID: 1411172371}
   - component: {fileID: 1411172372}
   - component: {fileID: 1411172373}
+  - component: {fileID: 1411172366}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3141,11 +3141,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1411172365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf60d23977dbfb24cb428ed04b0cda46, type: 3}
+  m_Script: {fileID: 11500000, guid: c41531ba5c0bd5c49ae7b5fd8f8bbc02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 40
-  runSpeed: 15
+  speed: 15
+  jumpPower: 30
+  coyoteTime: 0.25
+  extraJumps: 1
+  wallJumpX: 3000
+  wallJumpY: 2000
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
   isFacingRight: 1
 --- !u!212 &1411172367
 SpriteRenderer:
@@ -3315,7 +3325,7 @@ GameObject:
   - component: {fileID: 1460179868}
   - component: {fileID: 1460179867}
   - component: {fileID: 1460179866}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (4)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -3866,7 +3876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722287375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4666667, y: 1.500001, z: -10}
+  m_LocalPosition: {x: 4.95252, y: 1.500001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1836780680}
@@ -3885,7 +3895,7 @@ GameObject:
   - component: {fileID: 1732409190}
   - component: {fileID: 1732409189}
   - component: {fileID: 1732409188}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (9)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -4016,9 +4026,9 @@ GameObject:
   - component: {fileID: 1744993306}
   - component: {fileID: 1744993305}
   - component: {fileID: 1744993304}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Static Sprite
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4147,7 +4157,7 @@ GameObject:
   - component: {fileID: 1805868649}
   - component: {fileID: 1805868648}
   - component: {fileID: 1805868647}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (1)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -4648,7 +4658,7 @@ GameObject:
   - component: {fileID: 1860445903}
   - component: {fileID: 1860445902}
   - component: {fileID: 1860445901}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Static Sprite (10)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -4909,7 +4919,7 @@ GameObject:
   - component: {fileID: 1997478322}
   - component: {fileID: 1997478321}
   - component: {fileID: 1997478320}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (2)
   m_TagString: Floor
   m_Icon: {fileID: 0}
