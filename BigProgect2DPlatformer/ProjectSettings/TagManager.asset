@@ -11,6 +11,9 @@ TagManager:
   - Head
   - Bullet
   - EnemyBullet
+  - WalkingEnemy
+  - PlatformEnemy1
+  - PlatformEnemy2
   layers:
   - Default
   - TransparentFX
