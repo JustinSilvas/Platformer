@@ -19,7 +19,7 @@ public class NewPlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
-    private int life = 1;
+    
 
     [HideInInspector] public bool isFacingRight = true;
 
@@ -36,10 +36,7 @@ public class NewPlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (life == 0)
-        {
-            gameObject.SetActive(false);
-        }
+        
 
         horizontalInput = Input.GetAxis("Horizontal");
 
@@ -60,12 +57,12 @@ public class NewPlayerMovement : MonoBehaviour
         //anim.SetBool("Run", horizontalInput != 0);
         //anim.SetBool("Grounded", isGrounded());
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Jump();
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
+        if (Input.GetKeyUp(KeyCode.UpArrow) && body.velocity.y > 0)
         {
             body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
         }
@@ -162,9 +159,6 @@ public class NewPlayerMovement : MonoBehaviour
             onWall();
         }*/
 
-        if (collision.gameObject.CompareTag("Spike"))
-        {
-            life -= 1;
-        }
+        
     }
 }

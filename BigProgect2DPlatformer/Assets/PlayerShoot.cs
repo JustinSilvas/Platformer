@@ -9,17 +9,12 @@ public class PlayerShoot : MonoBehaviour
     public GameObject bulletPrefab;
 
     float timeUntilFire;
-    PlayerMovement pm;
-    void Start()
-    {
-        pm = GetComponent<PlayerMovement>();
-
-    }
-
-    // Update is called once per frame
+    
+    
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && timeUntilFire < Time.time)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && timeUntilFire < Time.time)
         {
             Shoot();
             timeUntilFire = Time.time + fireRate;
@@ -28,7 +23,6 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
-        float angle = pm.isFacingRight ? 0f : 180f;
-        Instantiate(bulletPrefab, firingPoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
+        Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
     }
 }
