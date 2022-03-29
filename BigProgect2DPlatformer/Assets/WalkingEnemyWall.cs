@@ -50,7 +50,17 @@ public class WalkingEnemyWall : MonoBehaviour
             if (player.position.y <= body.position.y + 2)
             {
                 DistanceCheck();
-            }            
+            }    
+            if (body.velocity.x > 0 && !facingLeft)
+            {
+            facingLeft = true;
+            body.transform.Rotate(0, 180, 0);
+            }
+        else if (body.velocity.x < 0 && facingLeft)
+            {
+            facingLeft = false;
+            body.transform.Rotate(0, 180, 0);
+            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
