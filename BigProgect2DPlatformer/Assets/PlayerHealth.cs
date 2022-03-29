@@ -10,8 +10,6 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth = 100;
     public int lifeCount;
 
-    string currentSceneName;
-
     public HealthBar healthBar;
     public Respawn respawn;
 
@@ -23,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         lifeCount = 3;
-        currentSceneName = SceneManager.GetActiveScene().name;
+        
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -73,6 +71,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if (lifeCount <= 0)
         {
+            string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
             lifeCount = 3;
 
