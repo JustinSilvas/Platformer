@@ -4,64 +4,58 @@ using UnityEngine;
 
 public class Platformenemy : MonoBehaviour
 {
-    public GameObject play; //Player alive trackiong
-    private Rigidbody2D body; //Rigidbody of enemy
-    public Transform player; //Player location
-    public Transform firingPoint; 
+    public GameObject play;
+    private Rigidbody2D body;
+    public Transform player;
+    public Transform firingPoint;
     public GameObject bulletPrefabRight;
     public GameObject bulletPrefabLeft;
 
     public float distance;
     private float range = 10;
-    private float walkingSpeed = 5; //Set it to negative
+    private float walkingSpeed = 5;
     private bool inRange = false;
     private float checkDist;
-    public bool direction = false; //False = Left and True = Right
+    public bool direction = false;
     private float shootCooldown = 5;
     private float nextShot;
     private bool Shot;
-    private int health;
+    private int health = 30;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 30;
         body = GetComponent<Rigidbody2D>();
-        body.velocity = new Vector2(walkingSpeed, 0);
-        transform.localScale = new Vector3(-1, 1, 1);
+              
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (play != null)
+        nextShot += Time.deltaTime;
+       
+
+        if (nextShot > shootCooldown)
         {
-            nextShot += Time.deltaTime;
+            Shot = true;
+        }
 
-            //Shot coolDown
-            if (nextShot > shootCooldown)
+        if (Shot)
+        {
+            DistanceCheck();
+            if (inRange)
             {
-                Shot = true;
+                Throw();
+                Shot = false;
+                nextShot = 0;
             }
-
-            if (Shot)
-            {
-                DistanceCheck();
-                if (inRange)
-                {
-                    Throw();
-                    Shot = false;
-                    nextShot = 0;
-                }
-
-            }
+            
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Bullet Collision
         if (collision.gameObject.CompareTag("Bullet"))
         {
             health -= 10;
@@ -71,38 +65,35 @@ public class Platformenemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        else if (collision.gameObject.CompareTag("Player") && player.position.y <= body.position.y +0.5)
-        {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player");
-            Destroy(enemies[0]);
-        }
+        
         
     }
 
     private void DistanceCheck()
     {
-        
-        distance = player.position.x - body.position.x;
-        if (distance < range && distance > -range)
+        if (play != null)
         {
-            if (distance > 0)
+            distance = player.position.x - body.position.x;
+            if (distance < range && distance > -range)
             {
-                transform.localScale = Vector3.one;
-                direction = true;
+                if (distance > 0)
+                {
+                    
+                    direction = true;
 
+                }
+                else if (distance < 0)
+                {
+                    
+                    direction = false;
+                }
+                inRange = true;
             }
-            else if (distance < 0)
+            else
             {
-                transform.localScale = new Vector3(-1, 1, 1);
-                direction = false;
+                inRange = false;
             }
-            inRange = true;
         }
-        else
-        {
-            inRange = false;
-        }
-        
     }
 
     private void Throw()
@@ -135,3 +126,4 @@ public class Platformenemy : MonoBehaviour
         }
     }
 }
+

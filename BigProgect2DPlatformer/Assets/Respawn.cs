@@ -13,7 +13,7 @@ public class Respawn : MonoBehaviour
         startingPos = transform.position;
     }
 
-    public void playerRespawn()
+    public void PlayerRespawn()
     {
         transform.position = startingPos;
     }
