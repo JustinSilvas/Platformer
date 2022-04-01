@@ -11,6 +11,7 @@ TagManager:
   - Head
   - Bullet
   - EnemyBullet
+  - gpoint
   layers:
   - Default
   - TransparentFX
