@@ -19,17 +19,17 @@ public class throwhook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (ropeActive == false)
             {
-                Vector2 destiny = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 destiny = GameObject.FindGameObjectWithTag("gpoint").transform.position;
                 curHook = (GameObject)Instantiate(hook, transform.position, Quaternion.identity);
                 curHook.GetComponent<RopeScript>().destiny = destiny;
                 ropeActive = true;
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetKeyUp(KeyCode.Q))
         {
             Destroy(curHook);
             ropeActive=false;
