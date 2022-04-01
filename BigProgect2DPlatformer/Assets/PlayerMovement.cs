@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float runSpeed = 15; //allows prgrammer to change speed in editor
     private bool grounded;
     private bool onWall;
-    private int life = 1;
+    
 
     [HideInInspector] public bool isFacingRight = true;
 
@@ -28,10 +28,7 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontalInput * runSpeed, body.velocity.y);
 
-        if (life == 0)
-        {
-            gameObject.SetActive(false);
-        }
+        
 
 
         //Makes player look the way it's walking
@@ -89,10 +86,6 @@ public class PlayerMovement : MonoBehaviour
             onWall = true;
         }
 
-        if (collision.gameObject.CompareTag("Spike"))
-        {
-            life -= 1;
-        } 
-    }
+            }
 }   
 

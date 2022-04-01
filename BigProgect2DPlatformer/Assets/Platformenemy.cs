@@ -26,8 +26,7 @@ public class Platformenemy : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        body.velocity = new Vector2(walkingSpeed, 0);
-        transform.localScale = new Vector3(-1, 1, 1);
+              
 
     }
 
@@ -66,11 +65,7 @@ public class Platformenemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        else if (collision.gameObject.CompareTag("Player") && player.position.y <= body.position.y +0.5)
-        {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player");
-            Destroy(enemies[0]);
-        }
+        
         
     }
 
@@ -83,13 +78,13 @@ public class Platformenemy : MonoBehaviour
             {
                 if (distance > 0)
                 {
-                    transform.localScale = Vector3.one;
+                    
                     direction = true;
 
                 }
                 else if (distance < 0)
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    
                     direction = false;
                 }
                 inRange = true;
@@ -131,3 +126,4 @@ public class Platformenemy : MonoBehaviour
         }
     }
 }
+
