@@ -61,9 +61,9 @@ public class Platformenemy : MonoBehaviour
             health -= 10;
         }
 
-        if (collision.gameObject.CompareTag("Player") && player.position.y > body.position.y + 1) 
+        if (collision.gameObject.CompareTag("Player") && player.position.y > body.position.y + 1.25) 
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         
         

@@ -83,6 +83,13 @@ public class WalkingEnemyWall : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            if (player.position.x - body.position.x > 0)
+            {
+
+            }
+        }
         
     }
 
