@@ -23,6 +23,6 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
+        Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
     }
 }

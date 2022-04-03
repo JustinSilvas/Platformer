@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     private float kill;
     [SerializeField] private float bulletTime = 5;
 
+
     // Update is called once per frame
     void Awake()
     {
@@ -25,6 +26,9 @@ public class Projectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
