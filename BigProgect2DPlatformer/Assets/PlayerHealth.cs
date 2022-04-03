@@ -7,12 +7,13 @@ public class PlayerHealth : MonoBehaviour
 {
 
     public int maxHealth = 100;
-    public int currentHealth = 100;
+    public int currentHealth;
     public int lifeCount;
 
-    public HealthBar healthBar;
-    public Respawn respawn;
+    public HealthBar healthBar; //Calls HealthBar class
+    public Respawn respawn; //Calls Respawn class
 
+    //Calls different enemies
     public GameObject walkingEnemy;
     public GameObject platformEnemy1;
     public GameObject platformEnemy2;
@@ -21,19 +22,21 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         lifeCount = 3;
-        
+
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth(maxHealth); //sets health bar to max health
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        //Checks collision and calls TakeDamage function with corresponding damage amount
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {
             TakeDamage(40);
         }
-        if (collision.gameObject.CompareTag("WalkingEnemy") && transform.position.y < walkingEnemy.transform.position.y + .5 )
+        if (collision.gameObject.CompareTag("WalkingEnemy") && transform.position.y < walkingEnemy.transform.position.y + .5)
         {
             TakeDamage(50);
         }
@@ -49,27 +52,27 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(maxHealth);
         }
-        
+
     }
 
     private void Update()
     {
 
-        if (transform.position.y <= -20)
+        if (transform.position.y <= -20) //Kills player if the fall below a certain threshold
         {
             TakeDamage(maxHealth);
         }
-        if (currentHealth <= 0 && lifeCount > 0)
+        if (currentHealth <= 0 && lifeCount > 0) //player respawns if it has lives remaining
         {
             lifeCount--;
             respawn.PlayerRespawn();
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
 
-            healthBar.SetLifeCount(lifeCount);
+            healthBar.SetLifeCount(lifeCount); //changes life count in UI
 
         }
-        if (lifeCount <= 0)
+        if (lifeCount <= 0) //reloads the scene if player runs out of lives
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
@@ -78,12 +81,12 @@ public class PlayerHealth : MonoBehaviour
             healthBar.SetLifeCount(lifeCount);
 
         }
-        
 
-        
+
+
     }
 
-    void TakeDamage(int damage)
+    void TakeDamage(int damage) //changes player health and calls health bar with said health
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
