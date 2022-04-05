@@ -17,7 +17,7 @@ public class Platformenemy : MonoBehaviour
     private bool inRange = false;
     private float checkDist;
     public bool direction = false;
-    private float shootCooldown = 5;
+    public float shootCooldown = 5;
     private float nextShot;
     private bool Shot;
     private int health = 30;
