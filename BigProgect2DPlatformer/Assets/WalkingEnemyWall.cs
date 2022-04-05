@@ -17,6 +17,9 @@ public class WalkingEnemyWall : MonoBehaviour
     private float checkDist;
     private bool direction = false;
     public float health = 10;
+
+    bool facingLeft;
+
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -34,12 +37,14 @@ public class WalkingEnemyWall : MonoBehaviour
             walkingSpeed = -walkingSpeed;
             wallCollision = false;
             direction = true;
+            
         }
         if (body.position.x >= 29 && direction == true)
         {
             walkingSpeed = -walkingSpeed;
             body.velocity = new Vector2(walkingSpeed, 0);
             direction = false;
+            
         }
         if (player.position.y <= body.position.y + 2)
         {
@@ -50,6 +55,17 @@ public class WalkingEnemyWall : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (body.velocity.x > 0 && !facingLeft)
+        {
+            facingLeft = true;
+            body.transform.Rotate(0, 180, 0);
+        }
+        else if (body.velocity.x < 0 && facingLeft)
+        {
+            facingLeft = false;
+            body.transform.Rotate(0, 180, 0);
+        }
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -67,11 +83,7 @@ public class WalkingEnemyWall : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        else if (collision.gameObject.CompareTag("Player") && player.position.y <= body.position.y + 0.5)
-        {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player");
-            Destroy(enemies[0]);
-        }
+        
     }
 
 
@@ -89,6 +101,7 @@ public class WalkingEnemyWall : MonoBehaviour
                     {
                         walkingSpeed = -walkingSpeed;
                         direction = true;
+                        
 
                     }
                 }
@@ -99,6 +112,7 @@ public class WalkingEnemyWall : MonoBehaviour
                     {
                         walkingSpeed = -walkingSpeed;
                         direction = false;
+                        
                     }
                 }
                 checkDist = distance;

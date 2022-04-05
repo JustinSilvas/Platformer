@@ -11,7 +11,7 @@ TagManager:
   - Head
   - Bullet
   - EnemyBullet
-  - gpoint
+
   layers:
   - Default
   - TransparentFX
@@ -20,8 +20,8 @@ TagManager:
   - Water
   - UI
   - noCol
-  - 
-  - 
+  - Ground
+  - Wall
   - 
   - 
   - 
