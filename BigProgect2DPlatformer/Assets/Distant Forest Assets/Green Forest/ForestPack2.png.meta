@@ -230,6 +230,9 @@ TextureImporter:
   - first:
       213: 7943933429878864008
     second: ForestPack2_75
+  - first:
+      213: -7249706959162414664
+    second: ForestPack2_TopTree
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1897,10 +1900,10 @@ TextureImporter:
       name: ForestPack2_75
       rect:
         serializedVersion: 2
-        x: 277
-        y: 511
-        width: 25
-        height: 55
+        x: 265
+        y: 514
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1910,6 +1913,27 @@ TextureImporter:
       bones: []
       spriteID: 888b74f9d558e3e60800000000000000
       internalID: 7943933429878864008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestPack2_TopTree
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 559
+        width: 62
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b962756eedd36b90800000000000000
+      internalID: -7249706959162414664
       vertices: []
       indices: 
       edges: []
