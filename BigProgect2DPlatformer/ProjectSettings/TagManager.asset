@@ -15,6 +15,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
+  - Enemy
+  - Water
+  - UI
+  - noCol
+  - Ground
+  - Wall
+  - EnemyBullet
+=======
   - Ceiling
   - Water
   - UI

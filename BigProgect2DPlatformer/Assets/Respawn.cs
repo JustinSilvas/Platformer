@@ -10,11 +10,11 @@ public class Respawn : MonoBehaviour
 
     void Start()
     {
-        startingPos = transform.position;
+        startingPos = transform.position; //sets respawn point
     }
 
     public void PlayerRespawn()
     {
-        transform.position = startingPos;
+        transform.position = startingPos; //moves player to repawn point
     }
 }
