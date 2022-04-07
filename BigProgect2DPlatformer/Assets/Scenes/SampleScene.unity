@@ -548,10 +548,10 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.198595, y: -0.303564, z: 0}
-  m_LocalScale: {x: -0.91319156, y: 0.31754678, z: 1.2826173}
+  m_GameObject: {fileID: 470645725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1874029324}
   m_RootOrder: 24
@@ -14940,22 +14940,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1428977883
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 40649307}
-  m_Layer: 0
-  m_Name: 'Recovery GameObject for Transform (ID in file: 40649307)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1429197306
 GameObject:
   m_ObjectHideFlags: 0
@@ -15468,7 +15452,7 @@ Transform:
   m_LocalScale: {x: -0.91319156, y: -0.31754678, z: 1.2826173}
   m_Children: []
   m_Father: {fileID: 1874029324}
-  m_RootOrder: 75
+  m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1485163720
 SpriteRenderer:
@@ -20256,6 +20240,8 @@ Transform:
   - {fileID: 1339662975}
   - {fileID: 1556087589}
   - {fileID: 363482321}
+  - {fileID: 214956990}
+  - {fileID: 1485163719}
   m_Father: {fileID: 484533032}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

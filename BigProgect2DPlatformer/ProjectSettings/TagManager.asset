@@ -3,30 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Floor
-  - Wall
-  - Enemy
-  - Spike
-  - Head
-  - Bullet
-  - EnemyBullet
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - 
   - Water
   - UI
-  - noCol
-  - Ground
-  - Wall
-  - EnemyBullet
-=======
-  - Ceiling
-  - Water
-  - UI
-  - BossBullet
+  - 
   - 
   - 
   - 

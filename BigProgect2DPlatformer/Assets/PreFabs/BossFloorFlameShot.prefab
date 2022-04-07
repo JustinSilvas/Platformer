@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6540510980943186849}
   - component: {fileID: 3224388481552365876}
   - component: {fileID: 6270636274646714815}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BossFloorFlameShot
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}

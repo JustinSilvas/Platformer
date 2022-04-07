@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
     void FixedUpdate()
     {
 
-        rb.velocity = Vector2.right * bulletSpeed;
+        rb.velocity = transform.right * bulletSpeed;
         
         Destroy(gameObject, 5f);
         

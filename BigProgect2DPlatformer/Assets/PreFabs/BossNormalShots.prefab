@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8196002334024701100}
   - component: {fileID: 3195958497628982023}
   - component: {fileID: 5907828755395601378}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BossNormalShots
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -135,6 +135,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
-  bulletDamage: 10
-  rb: {fileID: 3195958497628982023}
-  bulletTime: 5

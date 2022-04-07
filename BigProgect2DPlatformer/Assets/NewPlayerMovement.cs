@@ -18,6 +18,7 @@ public class NewPlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
+    public GameObject firingPoint;
     
 
     [HideInInspector] public bool isFacingRight = true;
@@ -42,7 +43,7 @@ public class NewPlayerMovement : MonoBehaviour
         if (horizontalInput > 0.01f && isFacingRight == false)
         {
             isFacingRight = true;
-            transform.Rotate(0, 180, 0);      
+            transform.Rotate(0, 180, 0);
         }
         else if (horizontalInput < -0.01f && isFacingRight == true)
         {
