@@ -17,7 +17,7 @@ public class Platformenemy : MonoBehaviour
     private bool inRange = false;
     private float checkDist;
     public bool direction = false;
-    private float shootCooldown = 5;
+    public float shootCooldown = 5;
     private float nextShot;
     private bool Shot;
     private int health = 30;
@@ -61,9 +61,9 @@ public class Platformenemy : MonoBehaviour
             health -= 10;
         }
 
-        if (collision.gameObject.CompareTag("Player") && player.position.y > body.position.y + 1) 
+        if (collision.gameObject.CompareTag("Player") && player.position.y > body.position.y + 1.25) 
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         
         

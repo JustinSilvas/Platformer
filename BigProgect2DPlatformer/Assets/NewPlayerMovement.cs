@@ -15,7 +15,6 @@ public class NewPlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
     private Rigidbody2D body;
-    private Animator anim;
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
@@ -29,7 +28,6 @@ public class NewPlayerMovement : MonoBehaviour
     {
         //Grabs references for rigidbodyand animator from object
         body = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -41,15 +39,15 @@ public class NewPlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         //Flips player when moving left or right
-        if (horizontalInput > 0.01f)
+        if (horizontalInput > 0.01f && isFacingRight == false)
         {
             isFacingRight = true;
-            transform.localScale = Vector3.one;
+            transform.Rotate(0, 180, 0);      
         }
-        else if (horizontalInput < -0.01f)
+        else if (horizontalInput < -0.01f && isFacingRight == true)
         {
             isFacingRight = false;
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.Rotate(0, 180, 0);
         }
         
 
@@ -76,6 +74,7 @@ public class NewPlayerMovement : MonoBehaviour
         {
             body.gravityScale = 7;
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+            
 
             if (isGrounded())
             {
