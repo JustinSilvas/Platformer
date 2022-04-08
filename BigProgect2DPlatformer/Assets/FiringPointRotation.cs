@@ -17,6 +17,6 @@ public class FiringPointRotation : MonoBehaviour
     {
         Vector3 separation = target.transform.position - transform.position;
         float angle = Mathf.Atan2(separation.y, separation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, new Vector3(1, 0, 0));
+        transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0, 0, 1));
     }
 }
