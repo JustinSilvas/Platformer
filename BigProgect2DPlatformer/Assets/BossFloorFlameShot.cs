@@ -13,6 +13,7 @@ public class BossFloorFlameShot : MonoBehaviour
 
     void FixedUpdate()
     {
+        rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0, -1 * bulletSpeed);
     }
 

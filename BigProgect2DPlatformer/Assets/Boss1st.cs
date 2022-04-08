@@ -80,6 +80,7 @@ public class Boss1st : MonoBehaviour
                         spreadShot = true;
                         StartCoroutine(SpreadShot());
                         time = 0;
+                        spreadShotTime = 0;
                     }
                 }
 
@@ -91,6 +92,7 @@ public class Boss1st : MonoBehaviour
                         floorShot = true;
                         FireFloorShot();
                         time = 0;
+                        floorShotTime = 0;
                     }
                 }
             }

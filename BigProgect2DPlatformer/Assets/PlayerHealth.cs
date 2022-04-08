@@ -9,14 +9,13 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public int lifeCount;
+    [SerializeField] private float collisionTimer;
+    private float damageCooldown = 1;
 
     public HealthBar healthBar; //Calls HealthBar class
     public Respawn respawn; //Calls Respawn class
 
     //Calls different enemies
-    public GameObject walkingEnemy;
-    public GameObject platformEnemy1;
-    public GameObject platformEnemy2;
 
 
     private void Start()
@@ -28,23 +27,23 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-
+        
         //Checks collision and calls TakeDamage function with corresponding damage amount
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {
             TakeDamage(40);
         }
-        if (collision.gameObject.CompareTag("WalkingEnemy") && transform.position.y < walkingEnemy.transform.position.y + .5)
+        if (collision.gameObject.CompareTag("WalkingEnemy"))
         {
             TakeDamage(50);
         }
-        if (collision.gameObject.CompareTag("PlatformEnemy1") && transform.position.y < platformEnemy1.transform.position.y + .5)
+        if (collision.gameObject.CompareTag("PlatformEnemy1"))
         {
             TakeDamage(50);
         }
-        if (collision.gameObject.CompareTag("PlatformEnemy2") && transform.position.y < platformEnemy2.transform.position.y + .5)
+        if (collision.gameObject.CompareTag("PlatformEnemy2"))
         {
             TakeDamage(50);
         }
@@ -52,12 +51,17 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(maxHealth);
         }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            TakeDamage(50);
+        }
+
 
     }
 
     private void Update()
     {
-
+        collisionTimer += Time.deltaTime;
         if (transform.position.y <= -20) //Kills player if the fall below a certain threshold
         {
             TakeDamage(maxHealth);
@@ -88,8 +92,12 @@ public class PlayerHealth : MonoBehaviour
 
     void TakeDamage(int damage) //changes player health and calls health bar with said health
     {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        if (collisionTimer >= damageCooldown)
+        {
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
+            collisionTimer = 0;
+        }
     }
 
 }

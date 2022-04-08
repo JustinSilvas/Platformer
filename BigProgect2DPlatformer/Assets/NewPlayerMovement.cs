@@ -18,7 +18,6 @@ public class NewPlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
-    public GameObject firingPoint;
     
 
     [HideInInspector] public bool isFacingRight = true;
