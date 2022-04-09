@@ -1,3 +1,6 @@
+/************************
+All code in this class was made by Brandon Martel
+************************/ 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +15,11 @@ public class WinScreen : MonoBehaviour
 
     public void Setup()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(true); //Makes the win screen visible
     }
 
     public void RestartButton()
-    {
+    { // Unpauses the game and resets the game by loading the scene again
         Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
         playerHealth.lifeCount = 3; //Resets player lives to 3
@@ -25,9 +28,8 @@ public class WinScreen : MonoBehaviour
         bossHealth.currentHealth = bossHealth.maxHealth; //Resets boss health to max health
         bossHealth.healthBar.SetMaxHealth(bossHealth.maxHealth); //sets boss health bar to max health
     }
-    public void ExitButton()
+    public void ExitButton() //Switches the scene to the title screen
     {
-        //Time.timeScale = 1;
         SceneManager.LoadScene("Title Screen");
     }
 }

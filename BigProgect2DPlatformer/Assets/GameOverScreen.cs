@@ -1,3 +1,6 @@
+/***************************
+All code in this class was made by Brandon Martel.
+***************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,19 +14,18 @@ public class GameOverScreen : MonoBehaviour
 
     public void Setup()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(true); //makes the game over screen visible
     }
 
     public void RestartButton()
-    {
+    { //Unpauses the game and restarts the game by loading the scene and resetting player health
         Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
         playerHealth.lifeCount = 3;
         healthBar.SetLifeCount(playerHealth.lifeCount);
     }
-    public void ExitButton()
+    public void ExitButton() //Changes the scene to the title screen
     {
-        //Time.timeScale = 1;
         SceneManager.LoadScene("Title Screen");
     }
 }
