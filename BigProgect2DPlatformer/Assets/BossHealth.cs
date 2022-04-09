@@ -1,3 +1,7 @@
+/***************************
+All code related to the win screen was made by Brandon Martel.
+The rest was made by Justin Silva.
+***************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +14,7 @@ public class BossHealth : MonoBehaviour
     public int currentHealth;
 
     public HealthBar healthBar; //Calls HealthBar class
-    public WinScreen winScreen; //Calls win screen class
+    public WinScreen winScreen; //Calls win screen class  //BM
 
     //Calls different enemies
 
@@ -39,7 +43,7 @@ public class BossHealth : MonoBehaviour
     {
         if (currentHealth <=0)
         {
-            WinScreen(); //Shows the win screen if the boss' health 
+            WinScreen(); //Shows the win screen if the boss' health reaches 0 //BM
         }
 
     }
@@ -49,9 +53,9 @@ public class BossHealth : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
-    public void WinScreen()
+    public void WinScreen() //BM
     {
-        winScreen.Setup(); //Makes the win screen visible
+        winScreen.Setup(); //Calls the win screen
     }
 
 }
