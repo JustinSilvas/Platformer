@@ -5,19 +5,18 @@ using UnityEngine;
 public class NewPlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float wallclimbMult;
     [SerializeField] private float jumpPower;
     [SerializeField] private float coyoteTime; //Time plyer can hang in the air before jumping
     private float coyoteCounter; //Time passed since player ran off an edge
     [SerializeField] private int extraJumps; //Number of extra jumps player can do
     private int jumpCounter; // How many extra jumps the player has at any moment
-    [SerializeField] private float wallJumpX; // horizontal wall jump force
-    [SerializeField] private float wallJumpY; // vertical wall jump force
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
-    private float wallJumpCooldown;
     private float horizontalInput;
+    private float verticalInput;
     
 
     [HideInInspector] public bool isFacingRight = true;
@@ -37,12 +36,13 @@ public class NewPlayerMovement : MonoBehaviour
         
 
         horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
 
         //Flips player when moving left or right
         if (horizontalInput > 0.01f && isFacingRight == false)
         {
             isFacingRight = true;
-            transform.Rotate(0, 180, 0);      
+            transform.Rotate(0, 180, 0);
         }
         else if (horizontalInput < -0.01f && isFacingRight == true)
         {
@@ -55,12 +55,12 @@ public class NewPlayerMovement : MonoBehaviour
         //anim.SetBool("Run", horizontalInput != 0);
         //anim.SetBool("Grounded", isGrounded());
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
 
-        if (Input.GetKeyUp(KeyCode.UpArrow) && body.velocity.y > 0)
+        if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
         {
             body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
         }
@@ -69,6 +69,7 @@ public class NewPlayerMovement : MonoBehaviour
         {
             body.gravityScale = 0;
             body.velocity = Vector2.zero;
+            body.velocity = new Vector2(body.velocity.x, verticalInput * (speed * wallclimbMult));
         }
         else
         {
@@ -127,8 +128,7 @@ public class NewPlayerMovement : MonoBehaviour
     }
     private void wallJump()
     {
-        body.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpX, wallJumpY));
-        wallJumpCooldown = 0;
+        body.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * 300, 200));
     }
     private bool isGrounded()
     {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6540510980943186849}
   - component: {fileID: 3224388481552365876}
   - component: {fileID: 6270636274646714815}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BossFloorFlameShot
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -73,9 +73,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -145,5 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 10
-  rb: {fileID: 6540510980943186849}
   fire: {fileID: 4552065809031971707, guid: d638478e429f6d94e9f407801c956015, type: 3}
