@@ -10,16 +10,23 @@ public class throwhook : MonoBehaviour
 
     public bool ropeActive = false;
 
+    public Transform player;
+
+    public Transform gpoint;
+
+    Vector2 distanceFromHook;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        distanceFromHook = new Vector2(gpoint.position.x - player.position.x, gpoint.position.y - player.position.y);
+        if (Input.GetKeyDown(KeyCode.Q) && (distanceFromHook.x <= 20 && distanceFromHook.x >= -20))
         {
             if (ropeActive == false)
             {
@@ -32,8 +39,8 @@ public class throwhook : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Q))
         {
             Destroy(curHook);
-            ropeActive=false;
+            ropeActive = false;
         }
-        
+
     }
 }
