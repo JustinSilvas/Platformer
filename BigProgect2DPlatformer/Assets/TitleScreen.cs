@@ -8,6 +8,7 @@ public class TitleScreen : MonoBehaviour
     
     public void PlayGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene"); //Loads game scene
     }
     public void QuitGame()

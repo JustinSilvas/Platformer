@@ -10,6 +10,7 @@ public class BossHealth : MonoBehaviour
     public int currentHealth;
 
     public HealthBar healthBar; //Calls HealthBar class
+    public WinScreen winScreen; //Calls win screen class
 
     //Calls different enemies
 
@@ -28,7 +29,7 @@ public class BossHealth : MonoBehaviour
         //Checks collision and calls TakeDamage function with corresponding damage amount
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            TakeDamage(10);
+            TakeDamage(100);
         }
 
 
@@ -36,7 +37,10 @@ public class BossHealth : MonoBehaviour
 
     private void Update()
     {
-
+        if (currentHealth <=0)
+        {
+            WinScreen(); //Shows the win screen if the boss' health 
+        }
 
     }
 
@@ -44,6 +48,10 @@ public class BossHealth : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+    public void WinScreen()
+    {
+        winScreen.Setup(); //Makes the win screen visible
     }
 
 }

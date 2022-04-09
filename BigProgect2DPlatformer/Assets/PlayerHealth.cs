@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     public HealthBar healthBar; //Calls HealthBar class
     public Respawn respawn; //Calls Respawn class
+    public GameOverScreen gameOverScreen; //Calls game over class
 
     //Calls different enemies
 
@@ -76,13 +77,10 @@ public class PlayerHealth : MonoBehaviour
             healthBar.SetLifeCount(lifeCount); //changes life count in UI
 
         }
-        if (lifeCount <= 0) //reloads the scene if player runs out of lives
+        if (lifeCount <= 0) //Shows the game over screen if the player runs out of lives
         {
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentSceneName);
-            lifeCount = 3;
-
-            healthBar.SetLifeCount(lifeCount);
+            Time.timeScale = 0;
+            GameOver();
 
         }
 
@@ -98,6 +96,10 @@ public class PlayerHealth : MonoBehaviour
             healthBar.SetHealth(currentHealth);
             collisionTimer = 0;
         }
+    }
+    public void GameOver()
+    {
+        gameOverScreen.Setup(); //Makes the game over screen visible
     }
 
 }
