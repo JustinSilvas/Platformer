@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
-    public int lifeCount;
+    public int lifeCount = 3;
     [SerializeField] private float collisionTimer;
     private float damageCooldown = 1;
 
@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        lifeCount = 3;
+       
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth); //sets health bar to max health

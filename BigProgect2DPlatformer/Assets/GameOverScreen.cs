@@ -19,8 +19,8 @@ public class GameOverScreen : MonoBehaviour
 
     public void RestartButton()
     { //Unpauses the game and restarts the game by loading the scene and resetting player health
-        Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1f;
         playerHealth.lifeCount = 3;
         healthBar.SetLifeCount(playerHealth.lifeCount);
     }

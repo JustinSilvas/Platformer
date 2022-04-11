@@ -62,11 +62,7 @@ public class Platformenemy : MonoBehaviour
         {
             health -= 10;
         }
-
-        if (collision.gameObject.CompareTag("Player")) 
-        {
-            Destroy(gameObject);
-        }
+        
         
         
     }
