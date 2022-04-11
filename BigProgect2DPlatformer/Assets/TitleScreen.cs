@@ -9,6 +9,7 @@ public class TitleScreen : MonoBehaviour
     
     public void PlayGame()
     {
+        Time.timeScale = 1; // Unpauses the game //BM
         SceneManager.LoadScene("SampleScene"); //Loads game scene
     }
     public void QuitGame()

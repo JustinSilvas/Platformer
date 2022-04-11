@@ -1,3 +1,7 @@
+/***************************
+All code related to the win screen was made by Brandon Martel.
+The rest was made by Justin Silva.
+***************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +16,7 @@ public class BossHealth : MonoBehaviour
 
     Boss1st health;
     public HealthBar healthBar; //Calls HealthBar class
+    public WinScreen winScreen; //Calls win screen class  //BM
 
     //Calls different enemies
 
@@ -30,7 +35,7 @@ public class BossHealth : MonoBehaviour
         //Checks collision and calls TakeDamage function with corresponding damage amount
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            TakeDamage(10);
+            TakeDamage(100);
         }
 
 
@@ -44,6 +49,9 @@ public class BossHealth : MonoBehaviour
             health.floorShotCooldown /= 2;
             health.spreadShotCooldown /= 2;
             health.shootCooldown /= 2;
+        if (currentHealth <=0)
+        {
+            WinScreen(); //Shows the win screen if the boss' health reaches 0 //BM
         }
 
     }
@@ -55,5 +63,10 @@ public class BossHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
     //NH end
+    public void WinScreen() //BM
+    {
+        winScreen.Setup(); //Calls the win screen
+    }
+
 }
 
