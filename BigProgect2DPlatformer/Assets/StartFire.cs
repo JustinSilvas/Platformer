@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//JS start
 public class StartFire : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -16,3 +17,4 @@ public class StartFire : MonoBehaviour
         
     }
 }
+//JS end

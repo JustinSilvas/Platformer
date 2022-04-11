@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//JS start 
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
@@ -86,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
             onWall = true;
         }
 
-            }
+    }
+
 }   
+//JS end
 

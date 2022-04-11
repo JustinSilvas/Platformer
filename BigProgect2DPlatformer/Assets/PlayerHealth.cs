@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//NH start
 public class PlayerHealth : MonoBehaviour
 {
 
@@ -31,10 +32,7 @@ public class PlayerHealth : MonoBehaviour
     {
         
         //Checks collision and calls TakeDamage function with corresponding damage amount
-        if (collision.gameObject.CompareTag("EnemyBullet"))
-        {
-            TakeDamage(40);
-        }
+        
         if (collision.gameObject.CompareTag("WalkingEnemy"))
         {
             TakeDamage(50);
@@ -58,6 +56,15 @@ public class PlayerHealth : MonoBehaviour
 
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            TakeDamage(40);
+        }
+    }
+
 
     private void Update()
     {
@@ -95,9 +102,10 @@ public class PlayerHealth : MonoBehaviour
         if (collisionTimer >= damageCooldown)
         {
             currentHealth -= damage;
-            healthBar.SetHealth(currentHealth);
             collisionTimer = 0;
+            healthBar.SetHealth(currentHealth);
         }
     }
 
 }
+//NH end

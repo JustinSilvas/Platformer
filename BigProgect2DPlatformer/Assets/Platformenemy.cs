@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//JS start
 public class Platformenemy : MonoBehaviour
 {
     public GameObject play;
@@ -35,7 +36,7 @@ public class Platformenemy : MonoBehaviour
     {
         nextShot += Time.deltaTime;
        
-
+        //Check next Shot
         if (nextShot > shootCooldown)
         {
             Shot = true;
@@ -54,6 +55,7 @@ public class Platformenemy : MonoBehaviour
         }
     }
 
+    //Collision with player or Bullets
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -69,6 +71,7 @@ public class Platformenemy : MonoBehaviour
         
     }
 
+    //Check Distace of player to decide what side to shoot
     private void DistanceCheck()
     {
         if (play != null)
@@ -126,4 +129,5 @@ public class Platformenemy : MonoBehaviour
         }
     }
 }
+//JS end
 

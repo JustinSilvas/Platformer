@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//JS start
 public class SpreadShot : MonoBehaviour
 {
     public float bulletSpeed = 3;
@@ -31,3 +31,4 @@ public class SpreadShot : MonoBehaviour
     }
 
 }
+//JS end

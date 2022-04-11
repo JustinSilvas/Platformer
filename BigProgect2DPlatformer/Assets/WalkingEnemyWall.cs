@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+//JS start
 public class WalkingEnemyWall : MonoBehaviour
 {
     public GameObject play;
@@ -154,3 +154,4 @@ public class WalkingEnemyWall : MonoBehaviour
         }
     }
 }
+//JS end

@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//JS start
 public class Boss1st : MonoBehaviour
 {
     private Rigidbody2D body;
     [SerializeField] private float speed = 1;
-    [SerializeField] private static int maxHealth = 200;
-    [SerializeField] private float health = 200;
-    [SerializeField] private float shootCooldown = 3;
+    public float shootCooldown = 3;
     public GameObject normalBullet;
     public GameObject floorFireBullet;
     public GameObject spreadShotBullet;
@@ -20,10 +19,10 @@ public class Boss1st : MonoBehaviour
     private bool normalShot = false;
     private bool floorShot = false;
     private bool spreadShot = false;
-    private float spreadShotCooldown = 13;
+    public float spreadShotCooldown = 13;
     private float spreadShotTime = 0;
     private float floorShotTime = 0;
-    private float floorShotCooldown = 15;
+    public float floorShotCooldown = 15;
 
 
     // Start is called before the first frame update
@@ -51,16 +50,12 @@ public class Boss1st : MonoBehaviour
             floorShotTime += Time.deltaTime;
 
             //Death based on health
-            if (health <= 0)
-            {
-                Destroy(this.gameObject);
-            }
 
             //Rotation of onject towards player
             Vector2 separation = target.transform.position - transform.position;
             float angle = Mathf.Atan2(separation.y, separation.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0,0,1));
-            //StartCoroutine(SpreadShot());
+
             if (time > shootCooldown)
             {
                 int randomNumber = Random.Range(0, 10);
@@ -69,7 +64,7 @@ public class Boss1st : MonoBehaviour
                 if ((randomNumber >= 0 && randomNumber <= 5) && normalShot == false)
                 {
                     normalShot = true;
-                    NormalShoot();
+                    StartCoroutine(NormalShoot());
                     time = 0;
                 }
 
@@ -97,29 +92,22 @@ public class Boss1st : MonoBehaviour
                 }
             }
 
-            if (health <= maxHealth)
-            {
-                floorShotCooldown /= 2;
-                spreadShotCooldown /= 2;
-                spreadShotCooldown /= 2;
-            }
+            
 
             //Shooting with cooldown
 
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private IEnumerator NormalShoot()
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        for (int j = 0; j < 3 ; j++)
         {
-            health -= 10;
-        }
-    }
+            Instantiate(normalBullet, firingPoint.position, body.transform.rotation);
+            yield return new WaitForSeconds(0.1f);
 
-    private void NormalShoot()
-    {
-        Instantiate(normalBullet, firingPoint.position, body.transform.rotation);
+        }
+
         normalShot = false;
     }
 
@@ -151,3 +139,4 @@ public class Boss1st : MonoBehaviour
         spreadShot = false;
     }
 }
+//JS end

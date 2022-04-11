@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//JS start
 public class FiringPointRotation : MonoBehaviour
 {
     public GameObject target;
@@ -20,3 +21,4 @@ public class FiringPointRotation : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0, 0, 1));
     }
 }
+//JS end

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//AL start
 public class playerforcerope : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -17,3 +18,4 @@ public class playerforcerope : MonoBehaviour
         
     }
 }
+//AL end

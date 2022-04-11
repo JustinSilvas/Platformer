@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//JS start
 public class BossFloorFlameShot : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -30,3 +30,4 @@ public class BossFloorFlameShot : MonoBehaviour
         }
     }
 }
+//JS end

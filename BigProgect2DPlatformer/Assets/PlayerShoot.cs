@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//BM start
 public class PlayerShoot : MonoBehaviour
 {
     public float fireRate = 0.2f;
@@ -26,3 +26,4 @@ public class PlayerShoot : MonoBehaviour
         Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
     }
 }
+//BM end
