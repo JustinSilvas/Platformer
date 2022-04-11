@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//JS start
 public class Bullet : MonoBehaviour
 {
     public float bulletSpeed = 5;
@@ -25,3 +25,4 @@ public class Bullet : MonoBehaviour
         Destroy(this.gameObject);
     }
 }
+//JS end

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//JS start
 public class BossBullets : MonoBehaviour
 {
     public float bulletSpeed = 5;
@@ -32,7 +33,7 @@ public class BossBullets : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-
+    //JS end
 
 
 }

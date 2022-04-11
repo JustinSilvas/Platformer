@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//JS start
 public class HeadCollision : MonoBehaviour
 {
     GameObject Enemy;
@@ -19,3 +19,4 @@ public class HeadCollision : MonoBehaviour
         Enemy.transform.position += Enemy.transform.position + movement * Time.deltaTime;
     }
 }
+//JS end

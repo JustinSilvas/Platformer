@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//NH start
 public class Respawn : MonoBehaviour
 {
 
@@ -18,3 +19,4 @@ public class Respawn : MonoBehaviour
         transform.position = startingPos; //moves player to repawn point
     }
 }
+//NH end

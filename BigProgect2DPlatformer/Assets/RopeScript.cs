@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//AL start
 public class RopeScript : MonoBehaviour
 {
     public Vector2 destiny;
@@ -91,3 +92,4 @@ public class RopeScript : MonoBehaviour
 
     }
 }
+//AL end

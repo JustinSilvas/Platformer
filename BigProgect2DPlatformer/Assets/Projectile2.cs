@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//JS start
 
 public class Projectile2 : MonoBehaviour
 {
@@ -16,18 +17,17 @@ public class Projectile2 : MonoBehaviour
     void Awake()
     {
         rb.velocity = new Vector2(-bulletSpeed, bulletJump);
+        Destroy(this.gameObject, 3f);
+
     }
 
     private void FixedUpdate()
     {
-        kill = Time.deltaTime;
-        if (kill > bulletTime)
-        {
-            Destroy(this.gameObject);
-        }
+   
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(this.gameObject);
     }
 }
+//JS end

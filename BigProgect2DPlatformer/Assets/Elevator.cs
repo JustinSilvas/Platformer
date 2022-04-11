@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//JS start
 public class Elevator : MonoBehaviour
 {
     private Rigidbody2D body;
-    [SerializeField] private float elevatorSpeed = 5;
+    [SerializeField] private float elevatorSpeed = 10;
     private bool topBot = true;
 
     void Start()
@@ -30,3 +30,4 @@ public class Elevator : MonoBehaviour
         }
     }
 }
+//JS end

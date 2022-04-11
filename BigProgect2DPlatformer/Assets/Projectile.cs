@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//JS start
 public class Projectile : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -17,15 +18,11 @@ public class Projectile : MonoBehaviour
     void Awake()
     {
         rb.velocity = new Vector2(bulletSpeed, bulletJump);
+        Destroy(this.gameObject, 3f);
     }
 
     private void FixedUpdate()
     {
-        kill = Time.deltaTime;
-        if (kill > bulletTime)
-        {
-            Destroy(this.gameObject);
-        }
 
         
 
@@ -35,3 +32,4 @@ public class Projectile : MonoBehaviour
         Destroy(this.gameObject);
     }
 }
+//JS end

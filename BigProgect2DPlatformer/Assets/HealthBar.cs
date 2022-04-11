@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//NH start
 public class HealthBar : MonoBehaviour
 {
     public Text lifeCountText; //Calls life count text
@@ -23,4 +23,5 @@ public class HealthBar : MonoBehaviour
     {
         lifeCountText.text = lifeCount.ToString();
     }
+    //NH end 
 }

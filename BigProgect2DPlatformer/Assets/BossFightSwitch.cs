@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+//JS start
 public class BossFightSwitch : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -26,3 +26,4 @@ public class BossFightSwitch : MonoBehaviour
         }
     }
 }
+//JS end

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//AL start
 public class throwhook : MonoBehaviour
 {
     public GameObject hook;
@@ -44,3 +45,4 @@ public class throwhook : MonoBehaviour
 
     }
 }
+//AL end
