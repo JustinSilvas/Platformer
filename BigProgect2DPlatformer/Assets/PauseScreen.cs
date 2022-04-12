@@ -11,7 +11,7 @@ public class PauseScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Escape))
+        if(Input.GetKeyUp(KeyCode.Escape)) //If the player presses escape the game will pause and show the pause UI and if the game is already paused pressing escape will unpause the game
         {
             if(GameIsPaused)
             {
@@ -24,7 +24,7 @@ public class PauseScreen : MonoBehaviour
         }
     }
 
-    public void Resume()
+    public void Resume() //resumes the game and closes the pause UI and sets time to 1 which unpauses the game
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -32,14 +32,14 @@ public class PauseScreen : MonoBehaviour
 
     }
 
-    public void Pause()
+    public void Pause() //pauses the game by setting time to 0 and sets the pause screen UI to active
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused=true;
     }
 
-    public void LoadMenu()
+    public void LoadMenu() //loads title screen when the menu button is pressed
     {
         Resume();
         Time.timeScale =0f;
@@ -47,7 +47,7 @@ public class PauseScreen : MonoBehaviour
 
     }
 
-    public void QuitGame()
+    public void QuitGame() //quits out of the game when quit button is pressed
     {
         Application.Quit();
     }

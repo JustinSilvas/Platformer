@@ -46,7 +46,7 @@ public class WalkingEnemyWall : MonoBehaviour
             direction = false;
             
         }
-        if (player.position.y <= body.position.y + 2)
+        if ((player.position.y <= body.position.y + 1) && (player.position.x <= 29))
         {
             DistanceCheck();
         }
