@@ -13,8 +13,9 @@ public class BossHealth : MonoBehaviour
 
     public int maxHealth = 1000;
     public int currentHealth;
+    private bool rage = false;
 
-    Boss1st health;
+    public Boss1st health;
     public HealthBar healthBar; //Calls HealthBar class
     public WinScreen winScreen; //Calls win screen class  //BM
 
@@ -44,18 +45,23 @@ public class BossHealth : MonoBehaviour
     private void Update()
     {
         //Rage mechanic
-        if (currentHealth <= maxHealth)
+        if (rage == false)
         {
-            health.floorShotCooldown /= 2;
-            health.spreadShotCooldown /= 2;
-            health.shootCooldown /= 2;
-        if (currentHealth <=0)
+            if (currentHealth <= maxHealth / 2)
+            {
+                health.spreadShotCooldown /= 2;
+                health.shootCooldown /= 2;
+                rage = true;
+            }
+        }
+        //JS end
+
+        if (currentHealth <= 0)
         {
             WinScreen(); //Shows the win screen if the boss' health reaches 0 //BM
         }
 
     }
-    //JS end
     //NH start
     void TakeDamage(int damage) //changes player health and calls health bar with said health
     {
@@ -65,8 +71,7 @@ public class BossHealth : MonoBehaviour
     //NH end
     public void WinScreen() //BM
     {
-        winScreen.Setup(); //Calls the win screen
+       winScreen.Setup(); //Calls the win screen
     }
-
 }
 
